@@ -2,10 +2,7 @@ package pl.basicAction;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
@@ -29,5 +26,9 @@ public class UploadTest {
 
         Actions actions = new Actions(driver);
         actions.contextClick(driver.findElement(By.id("myFile"))).perform();
+
+        WebElement heading = driver.findElement(By.tagName("h1"));
+
+        actions.moveToElement(heading);
     }
 }
