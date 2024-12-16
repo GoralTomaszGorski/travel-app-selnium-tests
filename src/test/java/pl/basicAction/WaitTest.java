@@ -24,7 +24,6 @@ public class WaitTest {
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
         driver.findElement(By.id("clickOnMe")).click();
 
-
         Thread.sleep(1000);
         FluentWait<WebDriver> wait = new FluentWait<>(driver);
 
