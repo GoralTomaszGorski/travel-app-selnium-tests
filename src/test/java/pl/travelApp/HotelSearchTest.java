@@ -12,13 +12,24 @@ import java.util.concurrent.TimeUnit;
 public class HotelSearchTest {
 
     @Test
-    public void hotelSearch(){
+    public void hotelSearch() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
         WebDriverManager.chromedriver().setup();
         driver.manage().window().maximize();
         driver.get("http://www.kurs-selenium.pl/demo/");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.findElement(By.xpath(
+                "//span[text()='Search by Hotel or City Name']"
+        )).click();
+        driver.findElement(By.xpath(
+                "//*[@id='select2-drop']/div/input"
+        )).sendKeys("Dubai");
+        driver.findElement(By.xpath(
+                "//span[@class='select2-match' and text()='Dubai']"
+        )).click();
+//*[@id="select2-drop"]/div/input
+        Thread.sleep(5000);
+        driver.quit();
 
     }
 }
