@@ -7,7 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Stream;
 
 public class HotelSearchTest {
 
@@ -27,7 +29,17 @@ public class HotelSearchTest {
         driver.findElement(By.xpath(
                 "//span[@class='select2-match' and text()='Dubai']"
         )).click();
-//*[@id="select2-drop"]/div/input
+        WebElement checkin = driver.findElement(By.name("checkin"));
+        checkin.sendKeys("17/01/2025");
+        checkin.click();
+        WebElement checkout = driver.findElement(By.name("checkout"));
+        checkout.sendKeys("25/01/2025");
+
+        driver.findElements(By.xpath(
+                        "//td[@class='day ' and text()='26']"))
+                .stream()
+                .filter(element -> element.isDisplayed())
+                .findFirst().ifPresent(element -> element.click());
         Thread.sleep(5000);
         driver.quit();
 
