@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class HotelSearchTest {
@@ -40,7 +41,13 @@ public class HotelSearchTest {
                 .stream()
                 .filter(element -> element.isDisplayed())
                 .findFirst().ifPresent(element -> element.click());
-        Thread.sleep(5000);
+
+        driver.findElement(By.id("travellersInput")).click();
+        driver.findElement(By.id("adultPlusBtn")).click();
+        driver.findElement(By.id("childPlusBtn")).click();
+        
+
+        Thread.sleep(2000);
         driver.quit();
 
     }
