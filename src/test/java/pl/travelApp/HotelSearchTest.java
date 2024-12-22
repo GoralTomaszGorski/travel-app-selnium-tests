@@ -45,7 +45,15 @@ public class HotelSearchTest {
         driver.findElement(By.id("travellersInput")).click();
         driver.findElement(By.id("adultPlusBtn")).click();
         driver.findElement(By.id("childPlusBtn")).click();
-        
+        driver.findElement(By.xpath("//button[text()=' Search']")).click();
+        List<String> hotelsName = driver.findElements(
+                        By.xpath("//h4[contains(@class, 'list_title')]//b"))
+                .stream()
+                .map(element ->
+                        element.getAttribute("textContent"))
+                .collect(Collectors.toList());
+        System.out.println(hotelsName.size());
+        hotelsName.forEach(el -> System.out.println(el));
 
         Thread.sleep(2000);
         driver.quit();
