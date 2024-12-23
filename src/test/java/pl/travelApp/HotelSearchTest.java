@@ -12,7 +12,8 @@ import org.testng.asserts.SoftAssert;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
+import static org.testng.Assert.*;
 
 public class HotelSearchTest {
 
@@ -41,10 +42,7 @@ public class HotelSearchTest {
         driver.findElements(By.xpath(
                         "//td[@class='day ' and text()='26']"))
                 .stream()
-                .filter(element -> {
-                    return element.isDisplayed();
-                })
-//                .findFirst().ifPresent(element -> element.click());
+                .filter(WebElement::isDisplayed)
                 .findFirst().ifPresent(WebElement::click);
 
         driver.findElement(By.id("travellersInput")).click();
@@ -60,11 +58,15 @@ public class HotelSearchTest {
         System.out.println(hotelsName.size());
         hotelsName.forEach(el -> System.out.println(el));
 
+        assertEquals("Jumeirah Beach Hotel",
+                hotelsName.get(0));
+        assertEquals("Oasis Beach Tower",
+                hotelsName.get(1));
+        assertEquals("Rose Rayhaan Rotana",
+                hotelsName.get(2));
         SoftAssert softAssert = new SoftAssert();
-        Assert.assertEquals("Jumeirah Beach Hotel", hotelsName.get(0));
-        Assert.assertEquals("Oasis Beach Tower", hotelsName.get(1));
-        Assert.assertEquals("Rose Rayhaan Rotana", hotelsName.get(2));
-        softAssert.assertEquals("aaaa aHyatt Regency Perth", hotelsName.get(0));
+
+        softAssert.assertEquals("Hyatt Regency Perth", hotelsName.get(3));
 
         Thread.sleep(5000);
         driver.quit();
