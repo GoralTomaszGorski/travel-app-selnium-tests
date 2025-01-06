@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -22,7 +23,7 @@ public class SignUpTest {
         WebDriverManager.chromedriver().setup();
         driver.manage().window().maximize();
         driver.get("http://www.kurs-selenium.pl/demo/");
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10L, TimeUnit.SECONDS);
 
         driver.findElements(By.xpath("//*[@id='li_myaccount']"))
                 .stream().filter(WebElement::isDisplayed)
@@ -31,14 +32,21 @@ public class SignUpTest {
 
         driver.findElement(By.linkText("Sign Up")).click();
 
+        String lastName = "Górski";
         driver.findElement(By.name("firstname")).sendKeys("Tomek");
-        driver.findElement(By.name("lastname")).sendKeys("Górski");
+        driver.findElement(By.name("lastname")).sendKeys(lastName);
         driver.findElement(By.name("phone")).sendKeys("603215114");
-        driver.findElement(By.name("email")).sendKeys("tomeek@gmail.com");
+        driver.findElement(By.name("email")).sendKeys("tomek53@gmail.com");
         driver.findElement(By.name("password")).sendKeys("123456");
         driver.findElement(By.name("confirmpassword")).sendKeys("123456");
 
+        Thread.sleep(1000);
         driver.findElement(By.className("signupbtn")).click();
+
+        WebElement heading = driver.findElement(By.xpath("//h3[@class='RTL']"));
+
+        Assert.assertTrue(heading.getText().contains(lastName));
+        Assert.assertEquals(heading.getText(), "Hi, Tomek Górski");
 
         Thread.sleep(5000);
         driver.quit();
