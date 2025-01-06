@@ -24,6 +24,11 @@ public class SignUpTest {
         driver.get("http://www.kurs-selenium.pl/demo/");
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
+        driver.findElements(By.xpath("//*[@id='li_myaccount']"))
+                .stream().filter(WebElement::isDisplayed)
+                .findFirst().ifPresent(WebElement::click);
+
+        driver.findElement(By.linkText("Sign Up")).click();
 
         Thread.sleep(5000);
         driver.quit();
