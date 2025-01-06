@@ -34,10 +34,11 @@ public class SignUpTest {
         driver.findElement(By.name("firstname")).sendKeys("Tomek");
         driver.findElement(By.name("lastname")).sendKeys("Górski");
         driver.findElement(By.name("phone")).sendKeys("603215114");
-        driver.findElement(By.name("email")).sendKeys("tomek@gmail.com");
-        driver.findElement(By.name("password")).sendKeys("1234");
-        driver.findElement(By.name("confirmpassword")).sendKeys("1234");
+        driver.findElement(By.name("email")).sendKeys("tomeek@gmail.com");
+        driver.findElement(By.name("password")).sendKeys("123456");
+        driver.findElement(By.name("confirmpassword")).sendKeys("123456");
 
+        driver.findElement(By.className("signupbtn")).click();
 
         Thread.sleep(5000);
         driver.quit();
