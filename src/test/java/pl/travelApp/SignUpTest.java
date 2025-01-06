@@ -27,8 +27,17 @@ public class SignUpTest {
         driver.findElements(By.xpath("//*[@id='li_myaccount']"))
                 .stream().filter(WebElement::isDisplayed)
                 .findFirst().ifPresent(WebElement::click);
+        Thread.sleep(1000);
 
         driver.findElement(By.linkText("Sign Up")).click();
+
+        driver.findElement(By.name("firstname")).sendKeys("Tomek");
+        driver.findElement(By.name("lastname")).sendKeys("Górski");
+        driver.findElement(By.name("phone")).sendKeys("603215114");
+        driver.findElement(By.name("email")).sendKeys("tomek@gmail.com");
+        driver.findElement(By.name("password")).sendKeys("1234");
+        driver.findElement(By.name("confirmpassword")).sendKeys("1234");
+
 
         Thread.sleep(5000);
         driver.quit();
