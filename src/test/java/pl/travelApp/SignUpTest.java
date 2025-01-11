@@ -28,10 +28,12 @@ public class SignUpTest {
         driver.findElement(By.linkText("Sign Up")).click();
 
         String lastName = "Górski";
+        int randomNumber = (int) (Math.random()*1000);
+        String email = "emailtomka" + randomNumber + "@telen.pl";
         driver.findElement(By.name("firstname")).sendKeys("Tomek");
         driver.findElement(By.name("lastname")).sendKeys(lastName);
         driver.findElement(By.name("phone")).sendKeys("603215114");
-        driver.findElement(By.name("email")).sendKeys("tomek53@gmail.com");
+        driver.findElement(By.name("email")).sendKeys(email);
         driver.findElement(By.name("password")).sendKeys("123456");
         driver.findElement(By.name("confirmpassword")).sendKeys("123456");
 
