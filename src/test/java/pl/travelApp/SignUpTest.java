@@ -10,15 +10,10 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class SignUpTest {
+public class SignUpTest extends BaseTest{
 
     @Test
     public void signUp() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
-        WebDriverManager.chromedriver().setup();
-        driver.manage().window().maximize();
-        driver.get("http://www.kurs-selenium.pl/demo/");
-        driver.manage().timeouts().implicitlyWait(10L, TimeUnit.SECONDS);
 
         driver.findElements(By.xpath("//*[@id='li_myaccount']"))
                 .stream().filter(WebElement::isDisplayed)
@@ -44,9 +39,6 @@ public class SignUpTest {
 
         Assert.assertTrue(heading.getText().contains(lastName));
         Assert.assertEquals(heading.getText(), "Hi, Tomek Górski");
-
-        Thread.sleep(5000);
-        driver.quit();
 
     }
 }

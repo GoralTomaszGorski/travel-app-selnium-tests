@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -15,15 +17,12 @@ import java.util.stream.Collectors;
 
 import static org.testng.Assert.*;
 
-public class HotelSearchTest {
+public class HotelSearchTest extends BaseTest{
+
+
 
     @Test
     public void hotelSearch() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
-        WebDriverManager.chromedriver().setup();
-        driver.manage().window().maximize();
-        driver.get("http://www.kurs-selenium.pl/demo/");
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath(
                 "//span[text()='Search by Hotel or City Name']"
         )).click();
@@ -67,9 +66,6 @@ public class HotelSearchTest {
         SoftAssert softAssert = new SoftAssert();
 
         softAssert.assertEquals("Hyatt Regency Perth", hotelsName.get(3));
-
-        Thread.sleep(5000);
-        driver.quit();
 
     }
 }
