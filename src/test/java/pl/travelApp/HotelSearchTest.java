@@ -12,8 +12,6 @@ import static org.testng.Assert.*;
 
 public class HotelSearchTest extends BaseTest{
 
-
-
     @Test
     public void hotelSearch() throws InterruptedException {
         driver.findElement(By.xpath(

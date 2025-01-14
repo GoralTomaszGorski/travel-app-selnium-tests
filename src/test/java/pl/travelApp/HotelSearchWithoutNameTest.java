@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 
 public class HotelSearchWithoutNameTest extends BaseTest {
 
-
     @Test
     public void hotelSearch() throws InterruptedException {
 
