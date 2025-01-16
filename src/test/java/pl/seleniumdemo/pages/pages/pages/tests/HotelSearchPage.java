@@ -35,6 +35,10 @@ public class HotelSearchPage {
     @FindBy(xpath = "//button[text()=' Search']")
     private WebElement searchButton;
 
+    public void setCity(String city){
+        searchHotelSpan.click();
+        searchHotelInput.sendKeys(city);
+    }
 }
 
 
