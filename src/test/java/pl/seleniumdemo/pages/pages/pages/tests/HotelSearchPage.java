@@ -38,6 +38,22 @@ public class HotelSearchPage {
     public void setCity(String city){
         searchHotelSpan.click();
         searchHotelInput.sendKeys(city);
+        hotelMatch.click();
+    }
+
+    public void serDates(String checkIn, String checkOut){
+        checkInInput.sendKeys(checkIn);
+        checkOutInput.sendKeys(checkOut);
+    }
+
+    public void  setTravellers(){
+        travellersInput.click();
+        adultPlusBtn.click();
+        childPlusBtn.click();
+    }
+
+    public void performSearch(){
+        searchButton.click();
     }
 }
 
