@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pl.seleniumdemo.pages.HotelSearchPage;
+import pl.seleniumdemo.pages.ResultPage;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,24 +22,18 @@ public class HotelSearchWithPatternTest extends BaseTest{
         hotelSearchPage.setTravellers();
         hotelSearchPage.performSearch();
 
-        List<String> hotelsName = driver.findElements(
-                        By.xpath("//h4[contains(@class, 'list_title')]//b"))
-                .stream()
-                .map(element ->
-                        element.getDomProperty("textContent"))
-                .collect(Collectors.toList());
-        System.out.println(hotelsName.size());
-        hotelsName.forEach(el -> System.out.println(el));
+        ResultPage resultPage = new ResultPage(driver);
+        List<String> hotelNames = resultPage.getHotelsName();
 
         assertEquals("Jumeirah Beach Hotel",
-                hotelsName.get(0));
+                hotelNames.get(0));
         assertEquals("Oasis Beach Tower",
-                hotelsName.get(1));
+                hotelNames.get(1));
         assertEquals("Rose Rayhaan Rotana",
-                hotelsName.get(2));
+                hotelNames.get(2));
         SoftAssert softAssert = new SoftAssert();
 
-        softAssert.assertEquals("Hyatt Regency Perth", hotelsName.get(3));
+        softAssert.assertEquals("Hyatt Regency Perth", hotelNames.get(3));
 
     }
 }
