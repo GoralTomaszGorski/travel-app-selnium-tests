@@ -1,17 +1,16 @@
-package pl.travelApp;
+package pl.seleniumdemo.tests;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pl.seleniumdemo.pages.tests.HotelSearchPage;
+import pl.seleniumdemo.pages.HotelSearchPage;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.testng.Assert.assertEquals;
 
-public class HotelSearchWithPaternTest extends BaseTest{
+public class HotelSearchWithPatternTest extends BaseTest{
 
     @Test
     public void hotelSearch() {
