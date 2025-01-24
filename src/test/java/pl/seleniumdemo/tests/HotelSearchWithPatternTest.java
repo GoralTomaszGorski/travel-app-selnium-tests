@@ -25,13 +25,15 @@ public class HotelSearchWithPatternTest extends BaseTest{
         ResultPage resultPage = new ResultPage(driver);
         List<String> hotelNames = resultPage.getHotelsName();
 
-        assertEquals("Jumeirah Beach Hotel",
-                hotelNames.get(0));
-        assertEquals("Oasis Beach Tower",
-                hotelNames.get(1));
-        assertEquals("Rose Rayhaan Rotana",
-                hotelNames.get(2));
+
         SoftAssert softAssert = new SoftAssert();
+
+        softAssert.assertEquals("Jumeirah Beach Hotel",
+                hotelNames.get(0));
+        softAssert.assertEquals("Oasis Beach Tower",
+                hotelNames.get(1));
+        softAssert.assertEquals("Rose Rayhaan Rotana",
+                hotelNames.get(2));
 
         softAssert.assertEquals("Hyatt Regency Perth", hotelNames.get(3));
 
