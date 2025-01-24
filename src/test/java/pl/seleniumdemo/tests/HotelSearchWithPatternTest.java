@@ -1,15 +1,12 @@
 package pl.seleniumdemo.tests;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pl.seleniumdemo.pages.HotelSearchPage;
 import pl.seleniumdemo.pages.ResultPage;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static org.testng.Assert.assertEquals;
 
 public class HotelSearchWithPatternTest extends BaseTest{
 

@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pl.seleniumdemo.tests.BaseTest;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
