@@ -1,5 +1,6 @@
 package pl.seleniumdemo.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pl.seleniumdemo.pages.HotelSearchPage;
@@ -7,21 +8,19 @@ import pl.seleniumdemo.pages.ResultPage;
 
 import java.util.List;
 
-
 public class HotelSearchWithPatternTest extends BaseTest{
 
     @Test
-    public void hotelSearch() {
+    public void hotelSearchWithPattern() {
 
         HotelSearchPage hotelSearchPage = new HotelSearchPage(driver);
         hotelSearchPage.setCity("Dubai");
-        hotelSearchPage.serDates("27/04/2025", "29/04/2025");
-        hotelSearchPage.setTravellers();
+        hotelSearchPage.setDates("27/04/2025", "29/04/2025");
+        hotelSearchPage.setTravellers(2,2);
         hotelSearchPage.performSearch();
 
         ResultPage resultPage = new ResultPage(driver);
         List<String> hotelNames = resultPage.getHotelsName();
-
 
         SoftAssert softAssert = new SoftAssert();
 
@@ -31,8 +30,9 @@ public class HotelSearchWithPatternTest extends BaseTest{
                 hotelNames.get(1));
         softAssert.assertEquals("Rose Rayhaan Rotana",
                 hotelNames.get(2));
-
         softAssert.assertEquals("Hyatt Regency Perth", hotelNames.get(3));
 
     }
+
+
 }
