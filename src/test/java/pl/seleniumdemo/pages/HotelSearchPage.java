@@ -57,7 +57,9 @@ public class HotelSearchPage {
 
     public void  setTravellers(int adultsAdd, int childAdd){
         travellersInput.click();
+        adultInput.clear();
         adultInput.sendKeys("0");
+        childInput.clear();
         childInput.sendKeys("0");
 
         for (int i = 0; i < adultsAdd; i++) {

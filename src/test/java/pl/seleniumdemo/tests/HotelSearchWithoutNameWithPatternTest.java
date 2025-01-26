@@ -17,7 +17,7 @@ public class HotelSearchWithoutNameWithPatternTest extends BaseTest {
 
         HotelSearchPage hotelSearchPage = new HotelSearchPage(driver);
         hotelSearchPage.setDates("27/04/2025", "30/04/2025");
-        hotelSearchPage.setTravellers(0,10);
+        hotelSearchPage.setTravellers(0,2);
         hotelSearchPage.performSearch();
 
         ResultPage resultPage = new ResultPage(driver);
