@@ -17,9 +17,6 @@ public class ResultPage extends BaseTest {
     @FindBy(xpath = "//div[@class='itemscontainer']//h2")
     public WebElement resultHeading;
 
-
-
-
     public ResultPage(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
