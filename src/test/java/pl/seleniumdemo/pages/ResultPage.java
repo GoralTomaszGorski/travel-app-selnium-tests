@@ -14,6 +14,12 @@ public class ResultPage extends BaseTest {
     @FindBy(xpath="//h4[contains(@class, 'list_title')]//b")
     private List<WebElement> hotelList;
 
+    @FindBy(xpath = "//div[@class='itemscontainer']//h2")
+    public WebElement resultHeading;
+
+
+
+
     public ResultPage(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
@@ -24,6 +30,9 @@ public class ResultPage extends BaseTest {
                 .collect(Collectors.toList());
     }
 
+    public String getHeadingText(){
+        return resultHeading.getText();
+    }
 
 
 }

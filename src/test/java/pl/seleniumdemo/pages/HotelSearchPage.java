@@ -25,8 +25,14 @@ public class HotelSearchPage {
     @FindBy(id = "travellersInput")
     private WebElement travellersInput;
 
+    @FindBy(id ="adultInput")
+    public WebElement adultInput;
+
+    @FindBy(id ="childInput")
+    public WebElement childInput;
+
     @FindBy(id = "adultPlusBtn")
-    private WebElement adultPlusBtn;
+    public WebElement adultPlusBtn;
 
     @FindBy(id = "childPlusBtn")
     private WebElement childPlusBtn;
@@ -44,15 +50,22 @@ public class HotelSearchPage {
         hotelMatch.click();
     }
 
-    public void serDates(String checkIn, String checkOut){
+    public void setDates(String checkIn, String checkOut){
         checkInInput.sendKeys(checkIn);
         checkOutInput.sendKeys(checkOut);
     }
 
-    public void  setTravellers(){
+    public void  setTravellers(int adultsAdd, int childAdd){
         travellersInput.click();
-        adultPlusBtn.click();
-        childPlusBtn.click();
+        adultInput.sendKeys("0");
+        childInput.sendKeys("0");
+
+        for (int i = 0; i < adultsAdd; i++) {
+            adultPlusBtn.click();
+        }
+        for (int i = 0; i < childAdd; i++) {
+            childPlusBtn.click();
+        }
     }
 
     public void performSearch(){
