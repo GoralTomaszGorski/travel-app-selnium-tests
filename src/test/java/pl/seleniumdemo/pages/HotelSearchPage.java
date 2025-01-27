@@ -84,6 +84,14 @@ public class HotelSearchPage {
         searchButton.click();
     }
 
+    public void openSignUpForm(){
+        myAccountLink.stream()
+                .filter(WebElement::isDisplayed)
+                .findFirst()
+                .ifPresent(WebElement::click);
+        signUpLink.get(1).click();
+    }
+
 }
 
 
