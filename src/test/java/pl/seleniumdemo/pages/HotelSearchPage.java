@@ -38,6 +38,12 @@ public class HotelSearchPage {
     @FindBy(xpath = "//button[text()=' Search']")
     private WebElement searchButton;
 
+    @FindBy(xpath = "//li[id=' li_myaccount']")
+    private WebElement myAccount;
+
+    @FindBy(xpath = "//a[text()=' Sign Up']")
+    private WebElement signUpLink;
+
     private WebDriver driver;
 
     public HotelSearchPage(WebDriver driver){
@@ -75,6 +81,7 @@ public class HotelSearchPage {
     public void performSearch(){
         searchButton.click();
     }
+
 }
 
 
