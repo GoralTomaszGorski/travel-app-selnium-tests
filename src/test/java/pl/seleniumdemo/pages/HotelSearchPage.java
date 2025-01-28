@@ -43,8 +43,11 @@ public class HotelSearchPage {
     @FindBy(xpath = "//*[@id='li_myaccount']")
     private List<WebElement> myAccountLink;
 
-    @FindBy(linkText = "Sign Up")
-    private List<WebElement> signUpLink;
+    @FindBy(partialLinkText = "Sign Up")
+    WebElement signUpLink;
+
+//    go-text-right
+//            driver.findElement(By.linkText("Sign Up")).click();
 
     private WebDriver driver;
 
@@ -89,7 +92,7 @@ public class HotelSearchPage {
                 .filter(WebElement::isDisplayed)
                 .findFirst()
                 .ifPresent(WebElement::click);
-        signUpLink.get(1).click();
+        signUpLink.click();
     }
 
 }
