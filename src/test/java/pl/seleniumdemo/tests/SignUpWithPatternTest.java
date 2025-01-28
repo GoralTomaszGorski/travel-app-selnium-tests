@@ -19,7 +19,20 @@ public class SignUpWithPatternTest extends BaseTest{
         hotelSearchPage.openSignUpForm();
         Thread.sleep(1000);
 
+        driver.findElement(By.name("firstname")).sendKeys("Tomek");
+        driver.findElement(By.name("lastname")).sendKeys(lastName);
+        driver.findElement(By.name("phone")).sendKeys("603215114");
+        driver.findElement(By.name("email")).sendKeys(email);
+        driver.findElement(By.name("password")).sendKeys("123456");
+        driver.findElement(By.name("confirmpassword")).sendKeys("123456");
 
+        Thread.sleep(1000);
+        driver.findElement(By.className("signupbtn")).click();
+
+        WebElement heading = driver.findElement(By.xpath("//h3[@class='RTL']"));
+
+        Assert.assertTrue(heading.getText().contains(lastName));
+        Assert.assertEquals(heading.getText(), "Hi, Tomek Górski");
 
     }
 }
