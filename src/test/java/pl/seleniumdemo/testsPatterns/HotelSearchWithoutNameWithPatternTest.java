@@ -1,14 +1,10 @@
-package pl.seleniumdemo.tests;
+package pl.seleniumdemo.testsPatterns;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pl.seleniumdemo.pages.HotelSearchPage;
 import pl.seleniumdemo.pages.ResultPage;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import pl.seleniumdemo.tests.BaseTest;
 
 public class HotelSearchWithoutNameWithPatternTest extends BaseTest {
 
