@@ -27,7 +27,7 @@ public class SignUpWithPatternTest extends BaseTest {
         driver.findElement(By.name("password")).sendKeys("123456");
         driver.findElement(By.name("confirmpassword")).sendKeys("123456");
 
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         driver.findElement(By.className("signupbtn")).click();
 
         WebElement heading = driver.findElement(By.xpath("//h3[@class='RTL']"));
