@@ -1,13 +1,14 @@
-package pl.seleniumdemo.tests;
+package pl.seleniumdemo.testsPatterns;
 
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pl.seleniumdemo.pages.HotelSearchPage;
 import pl.seleniumdemo.pages.ResultPage;
+import pl.seleniumdemo.tests.BaseTest;
 
 import java.util.List;
 
-public class HotelSearchWithPatternTest extends BaseTest{
+public class HotelSearchWithPatternTest extends BaseTest {
 
     @Test
     public void hotelSearchWithPattern() {
