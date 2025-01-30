@@ -9,34 +9,37 @@ public class SignUpPage {
 
     @FindBy (name = "firstname")
     private WebElement firstnameInput;
-    
     @FindBy (name = "lastname")
     private WebElement lastnameInput;
-    
     @FindBy (name = "phone")
     private WebElement phoneInput;
-    
     @FindBy (name = "email")
     private WebElement emailInput;
-    
     @FindBy (name = "password")
-    private WebElement passwordInput;
-    
+    private WebElement passwordInput;  
     @FindBy (name = "confirmpassword")
     private WebElement confirmpasswordInput;
-    
     @FindBy (name = "signupbtn")
     private WebElement signupbtnBtn;
-
     public SignUpPage(WebDriver driver){
         PageFactory.initElements(driver, this);
         
     }
-
-    public void setFirstname(String firstname){
-        firstnameInput.sendKeys();
-
+    public void setFirstname(String firstName){
+        firstnameInput.sendKeys(firstName);
     }
-
-
+    public void setLastName(String lastName){
+        lastnameInput.sendKeys(lastName);
+    }
+    public void setPhone(String phone){
+        phoneInput.sendKeys(phone);
+    }
+    public void setPassword(String password){
+        passwordInput.sendKeys(password);
+    }
+    public void confirmPassword(String confirmpassword){
+        confirmpasswordInput.sendKeys(confirmpassword);
+    }
+    public void signUp(){
+    }
 }
