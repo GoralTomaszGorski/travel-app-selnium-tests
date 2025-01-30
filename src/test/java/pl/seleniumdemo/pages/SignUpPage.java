@@ -8,9 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 public class SignUpPage {
 
     @FindBy (name = "firstname")
-    private WebElement firstnameInput;
+    private WebElement firstNameInput;
+
     @FindBy (name = "lastname")
-    private WebElement lastnameInput;
+    private WebElement lastNameInput;
+
     @FindBy (name = "phone")
     private WebElement phoneInput;
     @FindBy (name = "email")
@@ -18,29 +20,35 @@ public class SignUpPage {
     @FindBy (name = "password")
     private WebElement passwordInput;  
     @FindBy (name = "confirmpassword")
-    private WebElement confirmpasswordInput;
+    private WebElement confirmPasswordInput;
     @FindBy (name = "signupbtn")
-    private WebElement signupbtnBtn;
+    private WebElement signUpBtn;
+
     public SignUpPage(WebDriver driver){
         PageFactory.initElements(driver, this);
-        
     }
+
     public void setFirstname(String firstName){
-        firstnameInput.sendKeys(firstName);
+        firstNameInput.sendKeys(firstName);
     }
+
     public void setLastName(String lastName){
-        lastnameInput.sendKeys(lastName);
+        lastNameInput.sendKeys(lastName);
     }
+
     public void setPhone(String phone){
         phoneInput.sendKeys(phone);
     }
+
     public void setPassword(String password){
         passwordInput.sendKeys(password);
     }
-    public void confirmPassword(String confirmpassword){
-        confirmpasswordInput.sendKeys(confirmpassword);
+
+    public void confirmPassword(String confirmPassword){
+        confirmPasswordInput.sendKeys(confirmPassword);
     }
+
     public void signUp(){
-        signupbtnBtn.click();
+        signUpBtn.click();
     }
 }
