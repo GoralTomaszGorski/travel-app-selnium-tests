@@ -41,5 +41,6 @@ public class SignUpPage {
         confirmpasswordInput.sendKeys(confirmpassword);
     }
     public void signUp(){
+        signupbtnBtn.click();
     }
 }
