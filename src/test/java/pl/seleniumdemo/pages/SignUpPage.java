@@ -15,13 +15,17 @@ public class SignUpPage {
 
     @FindBy (name = "phone")
     private WebElement phoneInput;
+
     @FindBy (name = "email")
     private WebElement emailInput;
+
     @FindBy (name = "password")
-    private WebElement passwordInput;  
+    private WebElement passwordInput;
+
     @FindBy (name = "confirmpassword")
     private WebElement confirmPasswordInput;
-    @FindBy (name = "signupbtn")
+
+    @FindBy (className = "signupbtn")
     private WebElement signUpBtn;
 
     public SignUpPage(WebDriver driver){
@@ -36,6 +40,10 @@ public class SignUpPage {
         lastNameInput.sendKeys(lastName);
     }
 
+    public void setEmail(String email){
+        emailInput.sendKeys(email);
+    }
+
     public void setPhone(String phone){
         phoneInput.sendKeys(phone);
     }
@@ -48,7 +56,7 @@ public class SignUpPage {
         confirmPasswordInput.sendKeys(confirmPassword);
     }
 
-    public void signUp(){
+    public void signUpClick(){
         signUpBtn.click();
     }
 }

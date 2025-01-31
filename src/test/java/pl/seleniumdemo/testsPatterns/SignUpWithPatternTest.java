@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pl.seleniumdemo.pages.HotelSearchPage;
+import pl.seleniumdemo.pages.SignUpPage;
 import pl.seleniumdemo.tests.BaseTest;
 
 public class SignUpWithPatternTest extends BaseTest {
@@ -20,15 +21,16 @@ public class SignUpWithPatternTest extends BaseTest {
         hotelSearchPage.openSignUpForm();
         Thread.sleep(1000);
 
-        driver.findElement(By.name("firstname")).sendKeys("Tomek");
-        driver.findElement(By.name("lastname")).sendKeys(lastName);
-        driver.findElement(By.name("phone")).sendKeys("603215114");
-        driver.findElement(By.name("email")).sendKeys(email);
-        driver.findElement(By.name("password")).sendKeys("123456");
-        driver.findElement(By.name("confirmpassword")).sendKeys("123456");
+        SignUpPage signUpPage = new SignUpPage(driver);
+        signUpPage.setFirstname("Tomek");
+        signUpPage.setLastName(lastName);
+        signUpPage.setPhone("603254447");
+        signUpPage.setEmail(email);
+        signUpPage.setPassword("123qwerty");
+        signUpPage.confirmPassword("123qwerty");
+        signUpPage.signUpClick();
 
         Thread.sleep(3000);
-        driver.findElement(By.className("signupbtn")).click();
         WebElement heading = driver.findElement(By.xpath("//h3[@class='RTL']"));
 
         Assert.assertTrue(heading.getText().contains(lastName));
