@@ -40,6 +40,10 @@ public class SignUpPage {
         lastNameInput.sendKeys(lastName);
     }
 
+    public void setEmail(String email){
+        emailInput.sendKeys(email);
+    }
+
     public void setPhone(String phone){
         phoneInput.sendKeys(phone);
     }

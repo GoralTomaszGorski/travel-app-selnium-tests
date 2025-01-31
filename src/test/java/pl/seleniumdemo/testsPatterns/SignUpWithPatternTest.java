@@ -25,6 +25,7 @@ public class SignUpWithPatternTest extends BaseTest {
         signUpPage.setFirstname("Tomek");
         signUpPage.setLastName(lastName);
         signUpPage.setPhone("603254447");
+        signUpPage.setEmail(email);
         signUpPage.setPassword("123qwerty");
         signUpPage.confirmPassword("123qwerty");
         signUpPage.signUpClick();
