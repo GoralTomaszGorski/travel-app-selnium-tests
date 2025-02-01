@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pl.seleniumdemo.pages.HotelSearchPage;
+import pl.seleniumdemo.pages.LoggedUserPage;
 import pl.seleniumdemo.pages.SignUpPage;
 import pl.seleniumdemo.tests.BaseTest;
 
@@ -29,12 +30,11 @@ public class SignUpWithPatternTest extends BaseTest {
         signUpPage.setPassword("123qwerty");
         signUpPage.confirmPassword("123qwerty");
         signUpPage.signUpClick();
-
-        Thread.sleep(3000);
-        WebElement heading = driver.findElement(By.xpath("//h3[@class='RTL']"));
-
-        Assert.assertTrue(heading.getText().contains(lastName));
-        Assert.assertEquals(heading.getText(), "Hi, Tomek Górski");
+        Thread.sleep(1000);
+        
+        LoggedUserPage loggedUserPage = new LoggedUserPage(driver);
+        Assert.assertTrue(loggedUserPage.getHeadingText().contains(lastName));
+        Assert.assertEquals(loggedUserPage.getHeadingText() ,"Hi, Tomek Górski");
 
     }
 }
