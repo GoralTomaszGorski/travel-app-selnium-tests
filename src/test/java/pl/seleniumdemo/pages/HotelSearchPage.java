@@ -1,5 +1,7 @@
 package pl.seleniumdemo.pages;
 
+import org.checkerframework.checker.units.qual.radians;
+import org.checkerframework.checker.units.qual.t;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -56,19 +58,21 @@ public class HotelSearchPage {
         this.driver = driver;
     }
 
-    public void setCity(String city){
+    public HotelSearchPage setCity(String city){
         searchHotelSpan.click();
         searchHotelInput.sendKeys(city);
         String xpath = String.format("//span[@class='select2-match' and text()='%s']", city);
         driver.findElement(By.xpath(xpath)).click();
+        return this;
     }
 
-    public void setDates(String checkIn, String checkOut){
+    public HotelSearchPage setDates(String checkIn, String checkOut){
         checkInInput.sendKeys(checkIn);
         checkOutInput.sendKeys(checkOut);
+        return this;
     }
 
-    public void  setTravellers(int adultsAdd, int childAdd){
+    public HotelSearchPage  setTravellers(int adultsAdd, int childAdd){
         travellersInput.click();
         adultInput.clear();
         adultInput.sendKeys("0");
@@ -81,18 +85,22 @@ public class HotelSearchPage {
         for (int i = 0; i < childAdd; i++) {
             childPlusBtn.click();
         }
+        return this;
     }
 
-    public void performSearch(){
+    public HotelSearchPage performSearch(){
         searchButton.click();
+        return this;
+
     }
 
-    public void openSignUpForm(){
+    public HotelSearchPage openSignUpForm(){
         myAccountLink.stream()
                 .filter(WebElement::isDisplayed)
                 .findFirst()
                 .ifPresent(WebElement::click);
         signUpLink.click();
+        return this;
     }
 
 }
