@@ -20,7 +20,6 @@ public class HotelSearchWithoutNameWithPatternTest extends BaseTest {
         Assert.assertTrue(resultPage.resultHeading.isDisplayed());
 
         Assert.assertEquals(resultPage.getHeadingText(), "No Results Found");
-
-
     }
 }
+
