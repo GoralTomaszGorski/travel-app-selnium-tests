@@ -14,10 +14,11 @@ public class HotelSearchWithPatternTest extends BaseTest {
     public void hotelSearchWithPattern() {
 
         HotelSearchPage hotelSearchPage = new HotelSearchPage(driver);
-        hotelSearchPage.setCity("Dubai");
-        hotelSearchPage.setDates("27/04/2025", "29/04/2025");
-        hotelSearchPage.setTravellers(2,2);
-        hotelSearchPage.performSearch();
+        hotelSearchPage
+                .setCity("Dubai")
+                .setDates("27/04/2025", "29/04/2025")
+                .setTravellers(2,2)
+                .performSearch();
 
         ResultPage resultPage = new ResultPage(driver);
         List<String> hotelNames = resultPage.getHotelsName();
@@ -31,8 +32,5 @@ public class HotelSearchWithPatternTest extends BaseTest {
         softAssert.assertEquals("Rose Rayhaan Rotana",
                 hotelNames.get(2));
         softAssert.assertEquals("Hyatt Regency Perth", hotelNames.get(3));
-
     }
-
-
 }
