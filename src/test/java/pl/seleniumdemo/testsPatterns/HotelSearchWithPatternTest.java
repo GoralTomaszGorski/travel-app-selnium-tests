@@ -31,8 +31,5 @@ public class HotelSearchWithPatternTest extends BaseTest {
         softAssert.assertEquals("Rose Rayhaan Rotana",
                 hotelNames.get(2));
         softAssert.assertEquals("Hyatt Regency Perth", hotelNames.get(3));
-
     }
-
-
 }
