@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Travellers">
-    <test name="HotelSearchWithoutNameWithPatternTest" thread-count="3" parallel="methods">
+    <test name="HotelSearchWithoutNameWithPatternTest" thread-count="4" parallel="methods">
         <classes>
             <class name="pl.seleniumdemo.testsPatterns.HotelSearchWithoutNameWithPatternTest"/>
         </classes>
     </test>
-    <test name="SignUpWithPatternTest" thread-count="3" parallel="methods">
+    <test name="HotelSearchWithPatternTest" thread-count="4" parallel="methods">
+        <classes>
+            <class name="pl.seleniumdemo.testsPatterns.HotelSearchWithPatternTest"/>
+        </classes>
+    </test>
+    <test name="SignUpWithPatternTest" thread-count="4" parallel="methods">
         <classes>
             <class name="pl.seleniumdemo.testsPatterns.SignUpWithPatternTest"/>
         </classes>

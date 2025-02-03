@@ -30,7 +30,7 @@ public class SignUpWithPatternTest extends BaseTest {
         signUpPage.confirmPassword("123qwerty");
         signUpPage.signUpClick();
 
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         WebElement heading = driver.findElement(By.xpath("//h3[@class='RTL']"));
 
         Assert.assertTrue(heading.getText().contains(lastName));
