@@ -1,7 +1,7 @@
 package pl.seleniumdemo.pages;
 
-import org.checkerframework.checker.units.qual.radians;
-import org.checkerframework.checker.units.qual.t;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -48,10 +48,9 @@ public class HotelSearchPage {
     @FindBy(partialLinkText = "Sign Up")
     WebElement signUpLink;
 
-//    go-text-right
-//            driver.findElement(By.linkText("Sign Up")).click();
-
     private WebDriver driver;
+
+    private static final Logger logger = LogManager.getLogger();
 
     public HotelSearchPage(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -59,11 +58,12 @@ public class HotelSearchPage {
     }
 
     public HotelSearchPage setCity(String city){
-        System.out.println("Setting city" + city);
+        logger.info("Setting city: " + city);
         searchHotelSpan.click();
         searchHotelInput.sendKeys(city);
         String xpath = String.format("//span[@class='select2-match' and text()='%s']", city);
         driver.findElement(By.xpath(xpath)).click();
+        logger.info("Setting city done city is: " + city);
         return this;
     }
 
