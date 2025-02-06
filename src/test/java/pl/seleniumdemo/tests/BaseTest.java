@@ -16,7 +16,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
-        driver = DriverFactory.getDriver("firefox");
+        driver = DriverFactory.getDriver("d");
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();

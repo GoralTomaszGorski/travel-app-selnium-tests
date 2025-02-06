@@ -59,6 +59,7 @@ public class HotelSearchPage {
     }
 
     public HotelSearchPage setCity(String city){
+        System.out.println("Setting city" + city);
         searchHotelSpan.click();
         searchHotelInput.sendKeys(city);
         String xpath = String.format("//span[@class='select2-match' and text()='%s']", city);
@@ -67,12 +68,14 @@ public class HotelSearchPage {
     }
 
     public HotelSearchPage setDates(String checkIn, String checkOut){
+        System.out.println("setting dates checkIn:" + checkIn + " or checkOut: " + checkOut);
         checkInInput.sendKeys(checkIn);
         checkOutInput.sendKeys(checkOut);
         return this;
     }
 
     public HotelSearchPage  setTravellers(int adultsAdd, int childAdd){
+        System.out.println("setting travellers adultsAdd: " + adultsAdd + " or childAdd: " + childAdd);
         travellersInput.click();
         adultInput.clear();
         adultInput.sendKeys("0");
@@ -89,9 +92,10 @@ public class HotelSearchPage {
     }
 
     public HotelSearchPage performSearch(){
+        System.out.println("performing search ");
         searchButton.click();
+        System.out.println("performed search ");
         return this;
-
     }
 
     public HotelSearchPage openSignUpForm(){

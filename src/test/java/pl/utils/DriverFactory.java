@@ -9,7 +9,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class DriverFactory {
 
     public static WebDriver getDriver(String name){
-        if (name.equals("chrome")){
+        if (name.equals("google")){
             return new FirefoxDriver();
 
 
