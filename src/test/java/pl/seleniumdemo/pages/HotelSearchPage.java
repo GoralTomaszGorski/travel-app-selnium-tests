@@ -68,14 +68,14 @@ public class HotelSearchPage {
     }
 
     public HotelSearchPage setDates(String checkIn, String checkOut){
-        System.out.println("setting dates checkIn:" + checkIn + " or checkOut: " + checkOut);
+        logger.info("setting dates checkIn:" + checkIn + " or checkOut: " + checkOut);
         checkInInput.sendKeys(checkIn);
         checkOutInput.sendKeys(checkOut);
         return this;
     }
 
     public HotelSearchPage  setTravellers(int adultsAdd, int childAdd){
-        System.out.println("setting travellers adultsAdd: " + adultsAdd + " or childAdd: " + childAdd);
+        logger.info("setting travellers adultsAdd: " + adultsAdd + " or childAdd: " + childAdd);
         travellersInput.click();
         adultInput.clear();
         adultInput.sendKeys("0");
@@ -92,9 +92,9 @@ public class HotelSearchPage {
     }
 
     public HotelSearchPage performSearch(){
-        System.out.println("performing search ");
+        logger.info("performing search ");
         searchButton.click();
-        System.out.println("performed search ");
+        logger.info("performed search ");
         return this;
     }
 
