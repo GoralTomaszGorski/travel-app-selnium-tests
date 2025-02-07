@@ -6,17 +6,19 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import java.io.IOException;
+
 public class DriverFactory {
 
-    public static WebDriver getDriver(String name){
-        if (name.equals("google")){
+    public static WebDriver getDriver() throws IOException {
+        String name = PropertiesLoader.loadProperty("browser.name");
+        if (name.equals("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
             return new FirefoxDriver();
-
 
         } else {
             WebDriverManager.chromedriver().config();
             return new ChromeDriver();
         }
     }
-
 }
