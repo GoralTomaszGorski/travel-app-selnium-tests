@@ -1,10 +1,8 @@
 package pl.seleniumdemo.tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import pl.utils.DriverFactory;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
