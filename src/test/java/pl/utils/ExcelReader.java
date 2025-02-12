@@ -24,6 +24,18 @@ public class ExcelReader {
         } else if (fileExt.equals(".xls")) {
             workbook = new HSSFWorkbook(inputStream);
         }
+        Sheet sheet = workbook.getSheetAt(0);
+        int rowCount = sheet.getLastRowNum();
 
+        for (int i = 1; i <= rowCount; i++) {
+            Row row = sheet.getRow(i);
+
+            System.out.println(row.getCell(0).getStringCellValue());
+            System.out.println(row.getCell(1).getStringCellValue());
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        readExcel("dataTest.xlsx");
     }
 }
