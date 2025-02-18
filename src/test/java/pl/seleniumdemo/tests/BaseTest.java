@@ -1,5 +1,11 @@
 package pl.seleniumdemo.tests;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.AbstractReporter;
+import com.aventstack.extentreports.reporter.ExtentReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import org.testng.annotations.BeforeSuite;
 import pl.utils.DriverFactory;
 
 import org.openqa.selenium.WebDriver;
@@ -12,6 +18,16 @@ import java.time.Duration;
 public class BaseTest {
 
     protected WebDriver driver;
+    protected static ExtentSparkReporter sparkReporter;
+    protected static ExtentReports extentReports;
+
+    @BeforeSuite
+    public void beforeSuite() {
+        sparkReporter = new ExtentSparkReporter("src/test/resources/report.html");
+        extentReports = new ExtentReports();
+        extentReports.attachReporter(sparkReporter);
+    }
+    //https://www.youtube.com/watch?v=xqzJXFNpGIo
 
     @BeforeMethod
     public void setup() throws IOException {
