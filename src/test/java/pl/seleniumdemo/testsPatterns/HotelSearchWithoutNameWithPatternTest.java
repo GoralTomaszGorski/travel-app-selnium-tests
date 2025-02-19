@@ -1,5 +1,6 @@
 package pl.seleniumdemo.testsPatterns;
 
+import com.aventstack.extentreports.ExtentTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pl.seleniumdemo.pages.HotelSearchPage;
