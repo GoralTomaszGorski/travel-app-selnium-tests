@@ -5,6 +5,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.AbstractReporter;
 import com.aventstack.extentreports.reporter.ExtentReporter;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.testng.annotations.BeforeSuite;
 import pl.utils.DriverFactory;
 
@@ -21,6 +22,7 @@ public class BaseTest {
     protected static ExtentSparkReporter sparkReporter;
     protected static ExtentReports extentReports;
 
+
     @BeforeSuite
     public void beforeSuite() {
         sparkReporter = new ExtentSparkReporter("src/test/resources/report.html");
@@ -31,10 +33,16 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() throws IOException {
+        sparkReporter = new ExtentSparkReporter("src/test/resources/report.html");
+        extentReports = new ExtentReports();
+        sparkReporter.config().setTheme(Theme.DARK);
+        sparkReporter.config().setDocumentTitle("MyReport");
+        extentReports.attachReporter(sparkReporter);
         driver = DriverFactory.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         driver.get("http://www.kurs-selenium.pl/demo/");
+
     }
 
     @AfterMethod
