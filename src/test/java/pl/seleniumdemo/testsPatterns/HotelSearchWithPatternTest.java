@@ -7,13 +7,15 @@ import org.testng.asserts.SoftAssert;
 import pl.seleniumdemo.pages.HotelSearchPage;
 import pl.seleniumdemo.pages.ResultPage;
 import pl.seleniumdemo.tests.BaseTest;
+import pl.utils.SeleniumHelper;
 
+import java.io.IOException;
 import java.util.List;
 
 public class HotelSearchWithPatternTest extends BaseTest {
 
     @Test
-    public void hotelSearchWithPattern() {
+    public void hotelSearchWithPattern() throws IOException {
 
         ExtentTest test = extentReports.createTest("Search Hotel Test");
         HotelSearchPage hotelSearchPage = new HotelSearchPage(driver);
@@ -22,7 +24,7 @@ public class HotelSearchWithPatternTest extends BaseTest {
                 .setDates("27/04/2025", "29/04/2025")
                 .setTravellers(2,2)
                 .performSearch();
-        test.log(Status.PASS, "Settings city done");
+        test.log(Status.PASS, "Settings city done", SeleniumHelper.getScreenshot(driver));
         test.log(Status.PASS, "Settings dates done");
         test.log(Status.PASS, "Settings travellers done");
 
