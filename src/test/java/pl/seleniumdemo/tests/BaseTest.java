@@ -6,12 +6,10 @@ import com.aventstack.extentreports.reporter.AbstractReporter;
 import com.aventstack.extentreports.reporter.ExtentReporter;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 import pl.utils.DriverFactory;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -31,7 +29,7 @@ public class BaseTest {
     }
     //https://www.youtube.com/watch?v=xqzJXFNpGIo
 
-    @BeforeMethod
+    @BeforeTest
     public void setup() throws IOException {
         sparkReporter = new ExtentSparkReporter("src/test/resources/report.html");
         extentReports = new ExtentReports();
@@ -45,8 +43,10 @@ public class BaseTest {
 
     }
 
-    @AfterMethod
+    @AfterTest
     public void tearDown() throws InterruptedException {
         Thread.sleep(1000);
-        driver.quit();    }
+        driver.quit();
+        extentReports.flush();
+    }
 }
