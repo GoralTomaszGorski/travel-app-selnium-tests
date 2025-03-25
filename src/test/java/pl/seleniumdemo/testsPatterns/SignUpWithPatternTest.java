@@ -16,7 +16,7 @@ public class SignUpWithPatternTest extends BaseTest {
 
         String lastName = "Górski";
         int randomNumber = (int) (Math.random()*1000);
-        String email = "emailtomka" + randomNumber + "@telen.pl";
+        String email = "emailtoka" + randomNumber + "@telen.pl";
 
         HotelSearchPage hotelSearchPage = new HotelSearchPage(driver);
         hotelSearchPage.openSignUpForm();
